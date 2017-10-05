@@ -6,7 +6,7 @@ import (
 	"github.com/tokopedia/project2/types"
 )
 
-// GetCreateUserMutation creates a new user and returns it.
+// GetCreateProductMutation creates a new product and returns it.
 func GetCreateProductMutation() *graphql.Field {
 	return &graphql.Field{
 		Type: types.ProductType,

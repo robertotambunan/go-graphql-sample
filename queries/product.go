@@ -6,7 +6,7 @@ import (
 	"github.com/tokopedia/project2/types"
 )
 
-// GetUserQuery returns the queries available against user type.
+// GetProductQuery returns the queries available against product type.
 func GetUserQuery() *graphql.Field {
 	return &graphql.Field{
 		Type: graphql.NewList(types.ProductType),

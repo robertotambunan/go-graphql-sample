@@ -12,7 +12,7 @@ type Product struct {
 	ProductCity  string `db:"product_city" json:"product_city"`
 }
 
-// ProductType is the GraphQL schema for the user type.
+// ProductType is the GraphQL schema for the product type.
 var ProductType = graphql.NewObject(graphql.ObjectConfig{
 	Name: "Product",
 	Fields: graphql.Fields{
