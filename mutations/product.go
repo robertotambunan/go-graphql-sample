@@ -2,15 +2,17 @@ package mutations
 
 import (
 	"github.com/graphql-go/graphql"
-	data "github.com/tokopedia/project2/db"
-	"github.com/tokopedia/project2/types"
+	"github.com/robertotambunan/go-graphql-sample/data"
 )
 
 // GetCreateProductMutation creates a new product and returns it.
 func GetCreateProductMutation() *graphql.Field {
 	return &graphql.Field{
-		Type: types.ProductType,
+		Type: data.ProductType,
 		Args: graphql.FieldConfigArgument{
+			"product_id": &graphql.ArgumentConfig{
+				Type: graphql.NewNonNull(graphql.Int),
+			},
 			"product_name": &graphql.ArgumentConfig{
 				Type: graphql.NewNonNull(graphql.String),
 			},
@@ -22,12 +24,13 @@ func GetCreateProductMutation() *graphql.Field {
 			},
 		},
 		Resolve: func(params graphql.ResolveParams) (interface{}, error) {
-			product := types.Product{
+			product := data.Product{
+				ProductID:    params.Args["product_id"].(int),
 				ProductName:  params.Args["product_name"].(string),
 				ProductCity:  params.Args["product_city"].(string),
 				ProductPrice: params.Args["product_price"].(string),
 			}
-			isAdded := data.AddProductData(product.ProductName, product.ProductCity, product.ProductPrice)
+			isAdded := data.AddProductData(product)
 
 			if isAdded {
 				return product, nil
