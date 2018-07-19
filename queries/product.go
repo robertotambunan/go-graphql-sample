@@ -2,7 +2,7 @@ package queries
 
 import (
 	"github.com/graphql-go/graphql"
-	"github.com/tokopedia/go-graphql-sample/data"
+	"github.com/robertotambunan/go-graphql-sample/data"
 )
 
 // GetProductQuery returns the queries available against product type.

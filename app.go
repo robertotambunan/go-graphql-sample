@@ -7,9 +7,9 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/graphql-go/graphql"
 	"github.com/graphql-go/handler"
-	"github.com/tokopedia/go-graphql-sample/data"
-	"github.com/tokopedia/go-graphql-sample/mutations"
-	"github.com/tokopedia/go-graphql-sample/queries"
+	"github.com/robertotambunan/go-graphql-sample/data"
+	"github.com/robertotambunan/go-graphql-sample/mutations"
+	"github.com/robertotambunan/go-graphql-sample/queries"
 )
 
 func init() {
