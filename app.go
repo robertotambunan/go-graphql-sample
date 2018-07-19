@@ -7,9 +7,14 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/graphql-go/graphql"
 	"github.com/graphql-go/handler"
-	"github.com/tokopedia/project2/mutations"
-	"github.com/tokopedia/project2/queries"
+	"github.com/tokopedia/go-graphql-sample/data"
+	"github.com/tokopedia/go-graphql-sample/mutations"
+	"github.com/tokopedia/go-graphql-sample/queries"
 )
+
+func init() {
+	data.Initialize()
+}
 
 func main() {
 
@@ -34,7 +39,7 @@ func main() {
 		Schema: &schema,
 	})
 
-	http.Handle("/", httpHandler)
+	http.Handle("/gql", httpHandler)
 	log.Print("ready: listening...\n")
 	http.ListenAndServe(":9090", nil)
 
